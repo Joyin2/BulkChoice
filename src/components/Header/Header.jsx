@@ -34,7 +34,7 @@ const Header = () => {
             <div className="navigation">
               <ul className="menu">
                 {nav__link.map((item, index) => (
-                  <li className="nav_item" key={index}>
+                  <li className="nav__item" key={index}>
                     <NavLink to={item.path} 
                     className={
                       (navClass)=> navClass.isActive ? "nav__active" : ""
