@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import heroImg from "../assets/images/hero-img.png";
+import Services from "../services/Services";
 import "../styles/home.css";
 
 const Home = () => {
@@ -34,6 +35,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+      <Services/>
     </Helmet>
   );
 };
