@@ -62,16 +62,21 @@
   position: relative;
 }
 
-.badge{
+.badges{
     position: absolute;
-    top: -10px;
-    right: -15px;
+    top: -6px;
+    right: -10px;
     /* content: ""; */
     background: var(--primary-color);
     color: #fff;
-    width: 20px; 
-  height: 20px; 
-  border-radius: 50%;
+    width: 15px; 
+    font-size: 11px;
+    font-weight: 1000;
+  height: 15px; 
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
 }
 
