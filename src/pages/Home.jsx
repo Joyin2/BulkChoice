@@ -1,14 +1,32 @@
-import React from "react";
-import Helmet from "../components/Helmet/Helmet";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import products from "../assets/data/products";
+import Helmet from "../components/Helmet/Helmet";
 import heroImg from "../assets/images/hero-img.png";
 import Services from "../services/Services";
+import ProductList from "../components/UI/ProductList";
 import "../styles/home.css";
 
 const Home = () => {
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [bestSalesProducts, setBestSalesProducts] = useState([]);
+
   const year = new Date().getFullYear();
+  useEffect(() => {
+    const filteredTrendingProducts = products.filter(
+      (item) => item.category === "chair"
+    );
+
+    const filteredBestSalesProducts = products.filter(
+      (item) => item.category === "sofa"
+    );
+
+    setTrendingProducts(filteredTrendingProducts);
+    setBestSalesProducts(filteredBestSalesProducts);
+  }, []);
+
   return (
     <Helmet title="Home">
       <section className="hero__section">
@@ -24,7 +42,9 @@ const Home = () => {
                   itaque quos. Lorem ipsum, dolor sit amet consectetur
                   adipisicing elit. Facilis, esse.
                 </p>
-                <motion.button whileTap={{scale: 1.2}} className="buy__btn"><Link to="/shop">SHOP NOW</Link></motion.button>
+                <motion.button whileTap={{ scale: 1.2 }} className="buy__btn">
+                  <Link to="/shop">SHOP NOW</Link>
+                </motion.button>
               </div>
             </Col>
             <Col lg="6" md="6">
@@ -35,7 +55,27 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-      <Services/>
+      <Services />
+      <section className="trending__products">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center">
+              <h2 className="section__title">Trending Products</h2>
+            </Col>
+            <ProductList data={trendingProducts} />
+          </Row>
+        </Container>
+      </section>
+      <section className="best__sales">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center">
+              <h2 className="section__title">Best Sales</h2>
+            </Col>
+            <ProductList data={bestSalesProducts} />
+          </Row>
+        </Container>
+      </section>
     </Helmet>
   );
 };
