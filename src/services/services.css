@@ -45,3 +45,18 @@
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+@media only screen and (max-width :1200px){
+  .service__item {
+    padding: 15px;
+    width: 230px;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (max-width :767px){
+  .service__item {
+    padding: 15px;
+    width: auto;
+    margin-bottom: 1.5rem;
+  }
+}

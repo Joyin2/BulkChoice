@@ -7,6 +7,7 @@ import ProductDetails from "../pages/ProductDetails";
 import Checkout from "../pages/Checkout";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import Profile from "../profile/Profile";
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
       <Route path="checkout" element={<Checkout />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
+      <Route path="profile" element={<Profile/>}/>
     </Routes>
   );
 };

@@ -33,3 +33,15 @@
     cursor: pointer;
     border-radius: 50px;
 }
+@media only screen and (max-width :991px){
+    .product__info{
+        font-size: 1.1rem;
+    }
+    .product__info h3 a{
+        font-size: 1.5rem;
+    }
+    .product__info span{
+        font-size: 1.3rem;
+    }
+    
+}
