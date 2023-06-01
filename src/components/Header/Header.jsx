@@ -7,6 +7,7 @@ import userIcon from "../../assets/images/user-icon.png";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Router from "../../routers/Router";
+import { useSelector } from "react-redux";
 
 const nav__link = [
   {
@@ -25,6 +26,8 @@ const nav__link = [
 
 const Header = () => {
   const headerRef = useRef(null);
+  const totalQuantity = useSelector(state=> state.cart.totalQuantity)
+
   const menuRef = useRef(null)
 
   const stickyHeaderFunc = () => {
@@ -81,7 +84,7 @@ const Header = () => {
               </span>
               <span className="cart__icon">
                 <i class="ri-shopping-bag-line"></i>
-                <span className="badges">1</span>
+                <span className="badges">{totalQuantity}</span>
               </span>
               <span>
                 <Link to="/profile" ><motion.img whileTap={{ scale: 1.1 }} src={userIcon} alt="" /></Link>
