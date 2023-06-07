@@ -3,10 +3,17 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Router from "../../routers/Router";
 
+import AdminNav from "../../admin/AdminNav";
+import { useLocation } from "react-router";
+
 const Layout = () => {
+
   return (
     <>
-      <Header />
+    {
+      location.pathname.startsWith('/dashboard') ? <AdminNav/> : <Header />
+    }
+      
       <div>
         <Router />
       </div>
