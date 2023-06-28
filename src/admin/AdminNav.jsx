@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const admin__nav = [
   {
     display: "Dashboard",
-    path: "/dashboard/add-product",
+    path: "/dashboard",
   },
   {
     display: "All-Products",
@@ -48,7 +48,7 @@ const AdminNav = () => {
                 <span>
                   <i class="ri-settings-2-line"></i>
                 </span>
-                <img src={currentUser.photoURL} alt="" />
+                <img src={ currentUser && currentUser.photoURL} alt="" />
               </div>
             </div>
           </Container>
