@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CommonSection from "../components/UI/CommonSection";
 import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
 import "../styles/shop.css";
 
-import products from "../assets/data/products";
+// import products from "../assets/data/products";
 import { useState } from "react";
 import ProductList from "../components/UI/ProductList";
+import useGetData from "../custom-hooks/useGetData";
 
 const Shop = () => {
-  const [productsData, setProductsData] = useState(products);
+
+  const {data: products, loading}= useGetData("products")
+  const [productsData, setProductsData] = useState([]);
+
+  useEffect(() => {
+    if (products) {
+      setProductsData(products);
+    }
+  }, [products]);
+
+  console.warn(productsData)
+  
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
@@ -104,7 +116,7 @@ const Shop = () => {
       <section className="pt-0">
         <Container>
           <Row>
-            {productsData.length === 0 ? (
+            {productsData.length ===0 ? (
               <h1 className="text-center fs-4">No products are found!</h1>
             ) : (
               <ProductList  data={productsData}/>
